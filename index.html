@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Deformation-Compensated Learning for Image Reconstruction without Ground Truth">
+    <meta name="author" content="Shirin Shoushtari,
+    Jiaming Liu,
+    Yuyang Hu,
+    Ulugbek S. Kamilov">
+
+    <title>Prior Mismatch and Adaptation in PnP-ADMM with a Nonconvex Convergence Analysis</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+
+<!--    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>-->
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>Prior Mismatch and Adaptation in PnP-ADMM with a Nonconvex Convergence Analysis</h2> <h2></h2>
+    <h3></h3> 
+            <p class="abstract"><b> Nonconvex convergence analysis of PnP-ADMM for mismatched MMSE priors </b></p>
+    <hr>
+    <p class="authors">
+        <a href="https://shirinsg.github.io"> Shirin Shoushtari*<sup>1</sup></a>,
+        <a href="https://jiamingliu-jeremy.github.io"> Jiaming Liu*<sup>1</sup></a>,
+        <a href="https://www.linkedin.com/in/edward-chandler-93279b1a3"> Edward P. Chandler<sup>1</sup></a>,</br>
+        <a href="https://intra.ece.ucr.edu/~sasif/"> M. Salman Asif<sup>2</sup></a>,
+        <a href="https://engineering.wustl.edu/faculty/Ulugbek-Kamilov.html"> Ulugbek S. Kamilov<sup>1</sup></a> </br>
+    </p>
+    <p>
+        <a><sup>1</sup>Washington University in St.Louis, MO, USA</a></br>
+        <a><sup>2</sup>University of California Riverside, CA, USA</a></br>
+    </p>
+
+    <div class="btn-group" role="group" aria-label="Top menu">
+        
+        <a class="btn btn-primary" href="https://arxiv.org/pdf/2310.00133.pdf">Paper (arxiv)</a>
+      
+    </div>
+
+    
+</div>
+
+<div class="container">
+    <div class="section">
+
+ <div class="row align-items-center">
+            <div class="col justify-content-center text-left">
+                <img src="./img/main_figure.png" style="width:100%" alt="Banner">
+                <p><b>Figure 1:</b>Illustration of domain adaptation in PnP-ADMM. The mismatched denoiser is pre-trained on source distribution (BreCaHAD) and adapted to target distribution (MetFaces) using a few samples. Adapted prior is then plugged into PnP-ADMM algorithm to reconstruct a sample from MetFaces. </i> </p>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center">
+			<div class="col justify-content-center text-center">
+                <img src="./img/gif_final.gif" style="width:80%" alt="Banner">
+                <p><b>Figure 2:</b> An illustration of domain adaptation influence on PnP-ADMM with mismatched priors.</p>
+            </div>
+        </div>
+
+       
+
+
+        <!-- <video width="100%" height="400" controls="True" preload="none" loop muted autoplay = 'autoplay' playsInline>
+            <source type="video/mp4" src="img/Presentation1.mov" />
+            <source type="video/webm" src="img/video1.webm" />
+        </video> -->
+
+
+        <br>
+        <h2>Abstract</h2>
+        <hr>
+        <p>
+            Plug-and-Play (PnP) priors is a widely-used family of methods for solving imaging inverse problems by integrating physical measurement models with image priors specified using image denoisers.  PnP methods have been shown to achieve state-of-the-art performance when the prior is obtained using powerful deep denoisers. Despite extensive work on PnP, the topic of <em> distribution mismatch</em> between the training and testing data has often been overlooked in the PnP literature. This paper presents a set of new theoretical and numerical results on the topic of prior distribution mismatch and domain adaptation for <em> alternating direction method of multipliers (ADMM)</em> variant of PnP. Our theoretical result provides an explicit error bound for PnP-ADMM due to the mismatch between the desired denoiser and the one used for inference. Our analysis contributes to the work in the area by considering the mismatch under <em> nonconvex</em> data-fidelity terms and <em>expansive</em>> denoisers. Our first set of numerical results quantifies the impact of the prior distribution mismatch on the performance of PnP-ADMM on the problem of image super-resolution. Our second set of numerical results considers a simple and effective domain adaption strategy that closes the performance gap due to the use of mismatched denoisers. Our results suggest the relative robustness of PnP-ADMM to prior distribution mismatch, while also showing that the performance gap can be significantly reduced with few training samples from the desired distribution.
+        </p>
+    </div>
+
+
+    <div class="section">
+        <h2> Impact of Prior Mismatch on PnP-ADMM</h2>
+        <hr>
+
+        <div class="row align-items-center">
+			<div class="col justify-content-center text-left">
+                <img src="img/met_mismatch.png" style="width:100%" alt="Banner">
+                <p><b>Figure 3:</b> Visual evaluation of PnP-ADMM on image super-resolution using denoisers trained on several datasets. Note how the disparities in the training distributions of denoisers directly influence the performance of PnP. The denoisers containing images most similar to MetFaces offer the best performance. </p>
+            </div>
+        </div>
+
+
+        <div class="row align-items-center">
+			<div class="col justify-content-center text-left">
+                <img src="img/rx_mm.png" style="width:95%" alt="Banner">
+                <p><b>Figure 4:</b> Visual evaluation of several priors on the  image super-resolution task reported in terms of PSNR (dB) and SSIM for an image from RxRx1. Note the influence of mismatched priors on the performance of PnP.  .</p>
+            </div>
+        </div>
+    
+
+ 
+    </div>
+
+    <div class="section">
+        <h2> Domain Adaptation in PnP-ADMM </h2>
+        <hr>
+        <div class="row align-items-center">
+			<div class="col justify-content-center text-left">
+                <img src="img/psnr_den.png" style="width:100%" alt="Banner">
+                <p> <b>Figure 5:</b> Illustration of domain adaptation in PnP-ADMM. The mismatched denoiser is pre-trained on source distribution (BreCaHAD) and adapted to target distribution (MetFaces) using a few samples. Adapted prior is then plugged into PnP-ADMM algorithm to reconstruct a sample from MetFaces.Illustration of domain adaptation in PnP-ADMM. The mismatched denoiser is pre-trained on source distribution (BreCaHAD) and adapted to target distribution (MetFaces) using a few samples. Adapted prior is then plugged into PnP-ADMM algorithm to reconstruct a sample from MetFaces. </i> </p>
+            </div>
+        </div>
+
+         <div class="row align-items-center">
+            <div class="col justify-content-center text-left">
+                <img src="img/met_update.png" style="width:100%" alt="Banner">
+                <p> <b>Figure 6:</b> Visual comparison on super-resolution with target (MetFaces), mismatched (BreCaHAD), and adapted priors on two MetFaces test images. Note how the recovery performance increases by adaptation of mismatched priors to a larger set of images from the target distribution. </i> </p>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-left">
+                <img src="img/uprx.png" style="width:100%" alt="Banner">
+                <p><b>Figure 7:</b> Visual comparison of image super-resolution with target (RxRx1), mismatched (CelebA), and adapted priors on a test image from RxRx1. Note how the recovery performance increases by adaptation of mismatched priors to a larger set of images from the target distribution. </i> </p>
+            </div>
+        </div>
+
+        <p></p>
+        </div>
+
+
+
+    </div>
+    
+    <div class="section">
+        <h2>Paper</h2>
+        <hr>
+        <div>
+            <div class="list-group">
+                <a href="https://arxiv.org/pdf/2310.00133.pdf"
+                   class="list-group-item">
+                    <img src="img/paper.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="bibtexsection">
+            @article{Shoushtari.etal2023,
+            author={Shoushtari, Shirin
+            and Liu, Jiaming
+            and Chandler, Edward P.,
+            and Asif, M. Salman,
+            and Kamilov, Ulugbek S.},
+            title={Prior Mismatch and Adaptation in PnP-ADMM with a Nonconvex Convergence Analysis},
+            note={arXiv:2310.00133},
+            year={2023}
+            }
+        </div>
+    </div>
+
+    <hr>
+
+   <footer>
+       <p>Acknoledgement: Web template from <a href="https://www.vincentsitzmann.com/siren/">SIREN</a> and <a href="https://www.cse.wustl.edu/~kamilov/projects/2022/decolearn/">DeCoLearn</a></p>
+   </footer>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
